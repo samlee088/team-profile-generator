@@ -60,17 +60,23 @@ const quesionIntern = [
 ]
 
 
+let classArray = [];
 
 
 function init() {
     inquirer
     .prompt(questions)
     .then( (answers) => {
+        classArray.push(answers);
     switch(answers.jobClass) {
+        
         case ('Manager'):
             inquirer
             .prompt(questionManager)
             .then((response) => {
+                console.log(response);
+                classArray[(classArray.length)-1] = [classArray[classArray.length-1],response];
+                console.log(classArray);
                 console.log(response);
             });
                 break;
