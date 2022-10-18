@@ -4,6 +4,18 @@ const internal = require('stream');
 const { inherits } = require('util');
 
 
+
+const questionClass = [
+    {
+        type: 'list',
+        message: 'What is the job type?',
+        name: 'jobType',
+        choices: ['Manager','Engineer','Intern'],
+
+    },
+
+]
+
 const questions = [
     {
         type:'input',
@@ -23,13 +35,7 @@ const questions = [
         name:'email',
 
     },
-    {
-        type:'list',
-        message:'Please select from work type class',
-        name: 'jobClass',
-        choices:['Manager', 'Engineer', 'Intern'],
 
-    }
 ]
 
 const questionManager = [
@@ -50,7 +56,7 @@ const questionEngineer = [
     },
 ]
    
-const quesionIntern = [
+const questionIntern = [
     {
         type: 'input',
         message: 'Where do they go to school?',
@@ -65,27 +71,47 @@ let classArray = [];
 
 function init() {
     inquirer
-    .prompt(questions)
+    .prompt(questionClass)
     .then( (answers) => {
-        classArray.push(answers);
-    switch(answers.jobClass) {
+        // classArray.push(answers);
+        console.log(classArray);
+
+    switch(answers.jobType) {
         
         case ('Manager'):
             inquirer
-            .prompt(questionManager)
+            .prompt(questions.concat(questionManager))
             .then((response) => {
-                console.log(response);
-                classArray[(classArray.length)-1] = [classArray[classArray.length-1],response];
+                classArray.push(response);
+                classArray[classArray.length-1]['jobType']='manager';
                 console.log(classArray);
-                console.log(response);
             });
+
                 break;
 
+
         case ('Engineer'):
-            engineer();
+            inquirer
+            .prompt(questions.concat(questionEngineer))
+            .then((response) => {
+                classArray.push(response);
+                classArray[classArray.length]['jobtype'] = 'Engineer';
+                console.log(classArray);
+            });
+
             break;
+
         case ('Intern'):
-            intern();
+            inquirer
+            .prompt(questions.concat(questionIntern))
+            .then((response) => {
+                response['jobtype'] = 'Intern';
+                classArray.push(response)
+                console.log(classArray);
+
+
+            });
+         
             break;
 
         default :
