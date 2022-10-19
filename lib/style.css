@@ -1,0 +1,29 @@
+:root{
+    --purple : #4b2e83;
+    --gold : #b7a57a;
+    --darkGold: #85754d;
+}
+
+
+
+body h1 {
+    
+    background-color: var(--gold);
+    color: var(--purple);
+    text-align:center;
+    height: 70px;
+   
+}
+
+
+.information {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
