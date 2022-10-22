@@ -7,6 +7,7 @@ const Employee = require('./dist/Employee');
 const Manager = require('./dist/Manager');
 const Intern = require('./dist/Intern');
 const generateFile = require('./src/generateFile');
+const Engineer = require('./dist/Engineer');
 
 
 const questionClass = [
@@ -130,10 +131,12 @@ async function init() {
                 inquirer
                 .prompt(questions.concat(questionEngineer))
                 .then((response) => {
-                    classArray.push(response);
-                    classArray[classArray.length-1]['jobtype'] = 'Engineer';
-                    console.log(classArray);
-                    callTrigger();
+                   const {name, id, email, github} = response;
+                   const newEngineer = new Engineer(name, id, email, github);
+                   console.log(newEngineer);
+                   generateFile.engineerCard(newEngineer);
+
+                   callTrigger();
                 });
 
                 break;
@@ -142,10 +145,12 @@ async function init() {
                 inquirer
                 .prompt(questions.concat(questionIntern))
                 .then((response) => {
-                    response['jobtype'] = 'Intern';
-                    classArray.push(response)
-                    console.log(classArray);
-                    callTrigger();
+                const {name, id, email, school} = response;
+                const newIntern = new Intern(name, id, email, school);
+                console.log(newIntern);
+                generateFile.internCard(newIntern);
+                
+                callTrigger();
 
                 });
             

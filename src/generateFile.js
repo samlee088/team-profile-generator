@@ -16,6 +16,8 @@
 //////////////////////////////////////////////////////
 
 const resultsArray = [];
+let htmlData = ' ';
+
 
 function managerCard(data) {
 
@@ -26,6 +28,7 @@ const newManagerCard =
 ${data.name}
 </div>
 <ul class="list-group list-group-flush">
+<li class="list-group-item"> role: ${data.role} </li>
 <li class="list-group-item"> id : ${data.id} </li>
 <li class="list-group-item"> email: ${data.email} </li>
 <li class="list-group-item"> office number : ${data.officeNumber} </li>
@@ -36,10 +39,53 @@ resultsArray.push(newManagerCard);
 console.log(resultsArray);
 }
 
+function engineerCard(data) {
+
+    const newEngineerCard = 
+        `
+        <div class="card" style="width: 18rem;">
+        <div class="card-header">
+        ${data.name}
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> role: ${data.role} </li>
+        <li class="list-group-item"> id : ${data.id} </li>
+        <li class="list-group-item"> email: ${data.email} </li>
+        <li class="list-group-item"> github : ${data.github} </li>
+        </ul>
+        </div>
+        `
+    resultsArray.push(newEngineerCard)
+    console.log(resultsArray);
+}
+
+function internCard(data) {
+
+const newInternCard = 
+`
+<div class="card" style="width: 18rem;">
+<div class="card-header">
+${data.name}
+</div>
+<ul class="list-group list-group-flush">
+<li class="list-group-item"> role: ${data.role} </li>
+<li class="list-group-item"> id : ${data.id} </li>
+<li class="list-group-item"> email: ${data.email} </li>
+<li class="list-group-item"> school : ${data.school} </li>
+</ul>
+</div>
+`
+resultsArray.push(newInternCard);
+console.log(resultsArray);
+
+
+}
+
+
+
 
 
 function generateHTML() {
-    let htmlData = ' ';
     for (i=0; i < resultsArray.length; i++) {
 
         htmlData = htmlData + resultsArray[i];
@@ -94,7 +140,13 @@ function generateHTML() {
 
 
 
-module.exports = {managerCard, generateHTML}
+module.exports = {
+    managerCard,
+    engineerCard,
+    internCard,
+    generateHTML,
+
+}
 
 
 
