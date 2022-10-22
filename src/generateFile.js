@@ -38,7 +38,7 @@ function engineerCard(data) {
         <li class="list-group-item"> role: ${data.role} </li>
         <li class="list-group-item"> id : ${data.id} </li>
         <li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
-        <li class="list-group-item"> github : <a href = 'https://github.com/${data.github}'>${data.github}</a> </li>
+        <li class="list-group-item"> github : <a href = 'https://github.com/${data.github}' target='_blank'>${data.github}</a> </li>
         </ul>
         </div>
         `
