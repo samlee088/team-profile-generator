@@ -1,8 +1,11 @@
+const { Console } = require('console');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const internal = require('stream');
 const { inherits } = require('util');
+const Employee = require('./dist/Employee');
 const Manager = require('./dist/Manager');
+const Intern = require('./dist/Intern')
 
 
 const questionClass = [
@@ -76,9 +79,6 @@ const questionAdd = [
 
 ]
 
-let classArray = [];
-
-
 function callTrigger() {
     inquirer 
                 .prompt(questionAdd)
@@ -99,8 +99,7 @@ async function init() {
     inquirer
     .prompt(questionClass)
     .then( (answers) => {
-        // classArray.push(answers);
-        console.log(classArray);
+      
 
             switch(answers.jobType) {
             
@@ -108,10 +107,13 @@ async function init() {
                 inquirer
                 .prompt(questions.concat(questionManager))
                 .then((response) => {
-                    classArray.push(response);
-                    classArray[classArray.length-1]['jobType']='manager';
-                    console.log(classArray);
-                    callTrigger();
+                    // classArray.push(response);
+                    // classArray[classArray.length-1]['jobType']='manager';
+                    const {name, id , email, officeNumber} = response; 
+                    const newManager = new Manager(name, id, email,officeNumber);  
+                    console.log(newManager); 
+                    //console.log(classArray);
+                    //callTrigger();
 
                 });
                 break;
@@ -175,13 +177,15 @@ const responses = await init();
 
     // do something
     //take first value, run through class function, create class, push through to array collection for HTML, and then paste in html
-    else if (classArray[0]['jobtype']==='manager') {
-        const newManager = new Manager(classArray[0]);
+    else if (classArray[0]['jobtype']==='manager') {arguments
+        const testUser =  new Employee('tom', 234,'234sldkfj@sldjf.com'); 
+        console.log(classArray, testUser); 
+    //     const newManager = new Manager(classArray[0].name, classArray[0].id, classArray[0].email,classArray[0].officeNumber);
+    //     // const newManager1 = new Manager('tom', 234, 'sdlfjd@sdljs.com', 1234);
+    //     resultsArray .push(newManager)
 
-        resultsArray .push(newManager)
-
-    classArray.shift();
-    createClass(classArray);
+    // classArray.shift();
+    // createClass(classArray);
 
     }
     
