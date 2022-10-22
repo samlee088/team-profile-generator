@@ -1,25 +1,18 @@
-const createSection = require('../generateFile');
+const Employee = require('../lib/Employee');
 
 
-describe("createSection", () => {
-    describe("generateManager", () => {
-        it("should create an instance of the manager html to append to main document", () => {
+describe("Employee", () => {
+    describe("generateEmployee", () => {
+        it("should create an employee  class", () => {
 
-            const testManager = 
-            `
-            <div class="card" style="width: 18rem;">
-            <div class="card-header">
-            Example 1
-            </div>
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            </div>
-            `
+           const testEmployee = new Employee('John Doe','117','johndoe@email.com');
 
-            expect(result).toEqual(testManager);
+
+
+            expect(testEmployee.name).toEqual('John Doe');
+            expect(testEmployee.id).toEqual('117');
+            expect(testEmployee.email).toEqual('johndoe@email.com')
+            
 
         })
     })

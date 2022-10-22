@@ -1,15 +1,14 @@
-const { Console } = require('console');
 const fs = require('fs');
 const inquirer = require('inquirer');
-const internal = require('stream');
-const { inherits } = require('util');
-const Employee = require('./dist/Employee');
-const Manager = require('./dist/Manager');
-const Intern = require('./dist/Intern');
+
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+
 const generateFile = require('./src/generateFile');
-const Engineer = require('./dist/Engineer');
 
 
+/* This is the question prompt to determine which job type the next extrant is going to be, also determinig the prompt questions */
 const questionClass = [
     {
         type: 'list',
@@ -21,6 +20,8 @@ const questionClass = [
 
 ]
 
+
+/* These are the generic questions that apply to all employees */
 const questions = [
     {
         type:'input',
@@ -43,6 +44,8 @@ const questions = [
 
 ]
 
+
+/* These are the jobtype specific questions */
 const questionManager = [
     {
         type:'input',
@@ -70,6 +73,7 @@ const questionIntern = [
     },
 ]
 
+/* This is the prompt to determine if another employee is to be entered in */
 const questionAdd = [
     {
         type: 'list',
@@ -81,33 +85,11 @@ const questionAdd = [
 
 ]
 
-function callTrigger() {
-    inquirer 
-                .prompt(questionAdd)
-                .then((response) => {
-                if (response.addTrigger ==='Yes') {
-                   init();
-                } 
-                else {
-                    
-                   
 
-                    fs.appendFile('final.html',  generateFile.generateHTML(), (err) => {
-                    err ? console.err('error') : console.log('data');
-                    } )
+/* This is the function that starts the whole sequence. The prompts for the employee data are run through, and then the trigger to determine if there are more employees are called*/
 
-                   
-                   
-                    
-                }
-})};
+function init() {
 
-
-
-
-async function init() {
-
-    
     inquirer
     .prompt(questionClass)
     .then( (answers) => {
@@ -157,61 +139,34 @@ async function init() {
                 break;
 
             default :
-            //go to next function of the order
             break;
             }
         });
 };
 
-//pass this through to the classes through an multidimensional array object
-//take the array object and pass through the arrays with the classes
-//create the classes per unit, create html per unit, append or push to array
-//take the html with the appended, or pushed array and then create html file
-
-
-
-
-
-
-      
+/* This is the function that will either allow the user to enter in another employee, or to create the html */
+function callTrigger() {
+    inquirer 
+    .prompt(questionAdd)
+    .then((response) => {
+    if (response.addTrigger =='Yes') {
+        init();
+    } 
+    else {
         
         
-        //have classArray filled with prompt responses as a multidimensional object array
 
-//create recursive formula?
+        fs.writeFile('final.html',  generateFile.generateHTML(), (err) => {
+        err ? console.err('error') : console.log('Great Success~! :)');
+        } )
 
-// async function createClass() {
-
-// const responses = await init();
-
-//     if(classArray.length === 0) {
-//         return ;
-//     }
-
-//     // do something
-//     //take first value, run through class function, create class, push through to array collection for HTML, and then paste in html
-//     else if (classArray[0]['jobtype']==='manager') {arguments
-//         const testUser =  new Employee('tom', 234,'234sldkfj@sldjf.com'); 
-//         console.log(classArray, testUser); 
-//     //     const newManager = new Manager(classArray[0].name, classArray[0].id, classArray[0].email,classArray[0].officeNumber);
-//     //     // const newManager1 = new Manager('tom', 234, 'sdlfjd@sdljs.com', 1234);
-//     //     resultsArray .push(newManager)
-
-//     // classArray.shift();
-//     // createClass(classArray);
-
-//     }
-    
-//     // run next iteration, array splice away first value
-
-//     return resultsArray;
-// }
+        
+        
+        
+    }
+})};
 
 
-
-
-     
-// createClass();
 init();   
 
 
