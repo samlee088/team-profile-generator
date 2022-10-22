@@ -5,7 +5,8 @@ const internal = require('stream');
 const { inherits } = require('util');
 const Employee = require('./dist/Employee');
 const Manager = require('./dist/Manager');
-const Intern = require('./dist/Intern')
+const Intern = require('./dist/Intern');
+const generateFile = require('./src/generateFile');
 
 
 const questionClass = [
@@ -87,11 +88,21 @@ function callTrigger() {
                    init();
                 } 
                 else {
-                    createClass();
-                    console.log(classArray);
-                    return classArray;
+                    
+                   
+
+                    fs.appendFile('final.html',  generateFile.generateHTML(), (err) => {
+                    err ? console.err('error') : console.log('data');
+                    } )
+
+                   
+                   
+                    
                 }
 })};
+
+
+
 
 async function init() {
 
@@ -99,7 +110,6 @@ async function init() {
     inquirer
     .prompt(questionClass)
     .then( (answers) => {
-      
 
             switch(answers.jobType) {
             
@@ -107,13 +117,12 @@ async function init() {
                 inquirer
                 .prompt(questions.concat(questionManager))
                 .then((response) => {
-                    // classArray.push(response);
-                    // classArray[classArray.length-1]['jobType']='manager';
                     const {name, id , email, officeNumber} = response; 
                     const newManager = new Manager(name, id, email,officeNumber);  
                     console.log(newManager); 
-                    //console.log(classArray);
-                    //callTrigger();
+                    generateFile.managerCard(newManager);
+                   
+                    callTrigger();
 
                 });
                 break;
@@ -165,34 +174,33 @@ async function init() {
         //have classArray filled with prompt responses as a multidimensional object array
 
 //create recursive formula?
-const resultsArray = [];
 
-async function createClass() {
+// async function createClass() {
 
-const responses = await init();
+// const responses = await init();
 
-    if(classArray.length === 0) {
-        return ;
-    }
+//     if(classArray.length === 0) {
+//         return ;
+//     }
 
-    // do something
-    //take first value, run through class function, create class, push through to array collection for HTML, and then paste in html
-    else if (classArray[0]['jobtype']==='manager') {arguments
-        const testUser =  new Employee('tom', 234,'234sldkfj@sldjf.com'); 
-        console.log(classArray, testUser); 
-    //     const newManager = new Manager(classArray[0].name, classArray[0].id, classArray[0].email,classArray[0].officeNumber);
-    //     // const newManager1 = new Manager('tom', 234, 'sdlfjd@sdljs.com', 1234);
-    //     resultsArray .push(newManager)
+//     // do something
+//     //take first value, run through class function, create class, push through to array collection for HTML, and then paste in html
+//     else if (classArray[0]['jobtype']==='manager') {arguments
+//         const testUser =  new Employee('tom', 234,'234sldkfj@sldjf.com'); 
+//         console.log(classArray, testUser); 
+//     //     const newManager = new Manager(classArray[0].name, classArray[0].id, classArray[0].email,classArray[0].officeNumber);
+//     //     // const newManager1 = new Manager('tom', 234, 'sdlfjd@sdljs.com', 1234);
+//     //     resultsArray .push(newManager)
 
-    // classArray.shift();
-    // createClass(classArray);
+//     // classArray.shift();
+//     // createClass(classArray);
 
-    }
+//     }
     
-    // run next iteration, array splice away first value
+//     // run next iteration, array splice away first value
 
-    return resultsArray;
-}
+//     return resultsArray;
+// }
 
 
 
