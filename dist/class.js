@@ -1,54 +1,65 @@
-class  Employee {
+// class  Employee {
 
-    constructor(data) {
+//     constructor(data) {
 
-        this.name=data['name'];
-        this.id=data['id'];
-        this.email=data['email'];
+//         this.name=data['name'];
+//         this.id=data['id'];
+//         this.email=data['email'];
 
-    }
+//     }
 
-    getName()
-    getID()
-    getEmail()
-    getRole()
+//     getName(){
+//         return this.name;
+//     }
+//     getID() {
+//         return this.id;
+//     }
+//     getEmail() {
+//         return this.email;
+//     }
 
-}
+//     getRole() {
+//         return "Employee";
+//     }
 
-class Manager extends Employee {
+// }
 
-    constructor(data) {
-        this.officeNumber=data[officeNumber];
-    }
+// class Manager extends Employee {
+
+//     constructor(data) {
+//         this.officeNumber=data[officeNumber];
+//     }
    
-   super(data) 
+//    super(data) 
 
-   
-    getRole() {
-    this.role = 'Manager';
-    }
+//    getOfficeNumer() {
+//     return this.officeNumber;
+//    }
+//     getRole() {
+//     this.role = 'Manager';
+//     }
 
-}
+// }
 
-class Engineer extends Employee {
+// class Engineer extends Employee {
 
-    constructor(github) {
-        this.github = github
-    }
+//     constructor(github) {
+//         this.github = github
+//     }
 
-    getRole()
+//     getRole()
 
-}
+// }
 
-class Inter extends Employee {
+// class Intern extends Employee {
 
-    constructor(school) {
-        this.school = school;
-    }
+//     constructor(school) {
+//         this.school = school;
+//     }
 
-    getRole()
+//     getRole()
 
-}
+// }
 
-
+// module.exports = (Employee, Manager, Intern, Engineer);
 

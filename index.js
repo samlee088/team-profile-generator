@@ -2,7 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const internal = require('stream');
 const { inherits } = require('util');
-
+const Manager = require('./dist/Manager');
 
 
 const questionClass = [
@@ -87,11 +87,13 @@ function callTrigger() {
                    init();
                 } 
                 else {
-                    return;
+                    createClass();
+                    console.log(classArray);
+                    return classArray;
                 }
 })};
 
-function init() {
+async function init() {
 
     
     inquirer
@@ -142,15 +144,65 @@ function init() {
             //go to next function of the order
             break;
             }
+        });
+};
+
+//pass this through to the classes through an multidimensional array object
+//take the array object and pass through the arrays with the classes
+//create the classes per unit, create html per unit, append or push to array
+//take the html with the appended, or pushed array and then create html file
 
 
 
-        });   
+
+
+
+      
+        
+        
+        //have classArray filled with prompt responses as a multidimensional object array
+
+//create recursive formula?
+const resultsArray = [];
+
+async function createClass() {
+
+const responses = await init();
+
+    if(classArray.length === 0) {
+        return ;
+    }
+
+    // do something
+    //take first value, run through class function, create class, push through to array collection for HTML, and then paste in html
+    else if (classArray[0]['jobtype']==='manager') {
+        const newManager = new Manager(classArray[0]);
+
+        resultsArray .push(newManager)
+
+    classArray.shift();
+    createClass(classArray);
+
+    }
+    
+    // run next iteration, array splice away first value
+
+    return resultsArray;
 }
 
 
 
-init();
+
+     
+// createClass();
+init();   
+
+
+
+
+
+
+
 
 
 
