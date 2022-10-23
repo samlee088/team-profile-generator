@@ -90,6 +90,23 @@ const questionAdd = [
 
 function init() {
 
+    console.log("Please enter Manager information");
+    inquirer
+    .prompt(questions.concat(questionManager))
+    .then((response)=> {
+        const {name, id , email, officeNumber} = response; 
+        const newManager = new Manager(name, id, email,officeNumber);  
+        console.log(newManager); 
+        generateFile.managerCard(newManager);
+       
+        callTrigger();
+
+
+    });
+};
+
+function addTeam() {
+
     inquirer
     .prompt(questionClass)
     .then( (answers) => {
@@ -150,7 +167,7 @@ function callTrigger() {
     .prompt(questionAdd)
     .then((response) => {
     if (response.addTrigger =='Yes') {
-        init();
+        addTeam();
     } 
     else {
         
