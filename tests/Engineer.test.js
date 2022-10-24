@@ -29,15 +29,15 @@ const createEngineerCard = require('../src/generateFile');
 
         `
         <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        John Doe
-        </div>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item"> role: Engineer </li>
-        <li class="list-group-item"> id : 117 </li>
-        <li class="list-group-item"> email: <a href = 'mailto:johndoe@email.com'>johndoe@email.com</a> </li>
-        <li class="list-group-item"> github : <a href = 'https://github.com/johndoe117' target='_blank'>johndoe117</a> </li>
-        </ul>
+            <div class="card-header">
+                John Doe
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> role: Engineer </li>
+                    <li class="list-group-item"> id : 117 </li>
+                    <li class="list-group-item"> email: <a href = 'mailto:johndoe@email.com'>johndoe@email.com</a> </li>
+                    <li class="list-group-item"> github : <a href = 'https://github.com/johndoe117' target='_blank'>johndoe117</a> </li>
+                </ul>
         </div>
         `
 

@@ -7,21 +7,20 @@ let htmlData = ' ';
 function managerCard(data) {
 
 const newManagerCard = 
-`
-<div class="card" style="width: 18rem;">
-<div class="card-header">
-${data.name}
-</div>
-<ul class="list-group list-group-flush">
-<li class="list-group-item"> role: ${data.role} </li>
-<li class="list-group-item"> id : ${data.id} </li>
-<li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
-<li class="list-group-item"> office number : ${data.officeNumber} </li>
-</ul>
-</div>
-`
+        `
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                ${data.name}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> role: ${data.role} </li>
+                <li class="list-group-item"> id : ${data.id} </li>
+                <li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
+                <li class="list-group-item"> office number : ${data.officeNumber} </li>
+            </ul>
+        </div>
+        `
 resultsArray.push(newManagerCard);
-console.log(resultsArray);
 return newManagerCard;
 
 }
@@ -31,40 +30,38 @@ function engineerCard(data) {
     const newEngineerCard = 
         `
         <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        ${data.name}
-        </div>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item"> role: ${data.role} </li>
-        <li class="list-group-item"> id : ${data.id} </li>
-        <li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
-        <li class="list-group-item"> github : <a href = 'https://github.com/${data.github}' target='_blank'>${data.github}</a> </li>
-        </ul>
+            <div class="card-header">
+                ${data.name}
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> role: ${data.role} </li>
+                    <li class="list-group-item"> id : ${data.id} </li>
+                    <li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
+                    <li class="list-group-item"> github : <a href = 'https://github.com/${data.github}' target='_blank'>${data.github}</a> </li>
+                </ul>
         </div>
         `
     resultsArray.push(newEngineerCard)
-    console.log(resultsArray);
     return newEngineerCard;
 }
 
 function internCard(data) {
 
 const newInternCard = 
-`
-<div class="card" style="width: 18rem;">
-<div class="card-header">
-${data.name}
-</div>
-<ul class="list-group list-group-flush">
-<li class="list-group-item"> role: ${data.role} </li>
-<li class="list-group-item"> id : ${data.id} </li>
-<li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
-<li class="list-group-item"> school : ${data.school} </li>
-</ul>
-</div>
-`
+        `
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                ${data.name}
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> role: ${data.role} </li>
+                    <li class="list-group-item"> id : ${data.id} </li>
+                    <li class="list-group-item"> email: <a href = 'mailto:${data.email}'>${data.email}</a> </li>
+                    <li class="list-group-item"> school : ${data.school} </li>
+                </ul>
+        </div>
+        `
 resultsArray.push(newInternCard);
-console.log(resultsArray);
 return newInternCard;
 
 }

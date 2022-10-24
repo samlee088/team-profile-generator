@@ -1,11 +1,10 @@
 :root{
     --purple : #4b2e83;
     --gold : #b7a57a;
-    --darkGold: #85754d;
 }
 
 
-
+/* Header style, coloring and test alignment */
 body h1 {
     
     background-color: var(--gold);
@@ -16,10 +15,14 @@ body h1 {
 }
 
 
+/* Style information for the cards displaying employee information */
 .information {
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
+    text-align:center;
+    justify-content:space-evenly;
+    
 
 }
 

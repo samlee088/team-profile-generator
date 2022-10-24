@@ -1,6 +1,7 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
+  "description": "This is a project that creates an html page with contact information for a team employee. It starts with a team manager, and then the user had the optionality to add in additional employees, either Interns or Engineers. The application will prompt the user for information regarding the employees, and once there is no more employees to add, the application will create a HTML page for view. This project was created with an emphasis on Node.js.",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -23,6 +24,5 @@
   "dependencies": {
     "inquirer": "^8.2.4",
     "jest": "^29.2.1"
-  },
-  "description": ""
+  }
 }

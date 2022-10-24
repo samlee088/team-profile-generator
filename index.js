@@ -14,7 +14,7 @@ const questionClass = [
         type: 'list',
         message: 'What is the job type?',
         name: 'jobType',
-        choices: ['Manager','Engineer','Intern'],
+        choices: ['Engineer','Intern'],
 
     },
 
@@ -77,7 +77,7 @@ const questionIntern = [
 const questionAdd = [
     {
         type: 'list',
-        messsage: 'Would you like to add in another employee?',
+        message: 'Would you like to add in another employee?',
         name: 'addTrigger',
         choices: ['Yes','No'],
 
@@ -96,7 +96,6 @@ function init() {
     .then((response)=> {
         const {name, id , email, officeNumber} = response; 
         const newManager = new Manager(name, id, email,officeNumber);  
-        console.log(newManager); 
         generateFile.managerCard(newManager);
        
         callTrigger();
@@ -119,7 +118,6 @@ function addTeam() {
                 .then((response) => {
                     const {name, id , email, officeNumber} = response; 
                     const newManager = new Manager(name, id, email,officeNumber);  
-                    console.log(newManager); 
                     generateFile.managerCard(newManager);
                    
                     callTrigger();
@@ -132,7 +130,6 @@ function addTeam() {
                 .then((response) => {
                    const {name, id, email, github} = response;
                    const newEngineer = new Engineer(name, id, email, github);
-                   console.log(newEngineer);
                    generateFile.engineerCard(newEngineer);
 
                    callTrigger();
@@ -146,7 +143,6 @@ function addTeam() {
                 .then((response) => {
                 const {name, id, email, school} = response;
                 const newIntern = new Intern(name, id, email, school);
-                console.log(newIntern);
                 generateFile.internCard(newIntern);
                 
                 callTrigger();
@@ -166,7 +162,7 @@ function callTrigger() {
     inquirer 
     .prompt(questionAdd)
     .then((response) => {
-    if (response.addTrigger =='Yes') {
+    if (response.addTrigger ==='Yes') {
         addTeam();
     } 
     else {
