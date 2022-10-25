@@ -32,6 +32,7 @@
 ![example screenshot of the final product with example data ran through github](./dist/team-profile-generator-example-page-2.png)
 ![example screenshot of the final product with example data html viewpage](./dist/team-profile-generator-example-page.png)
 
+https://drive.google.com/file/d/18EZxzvCxs8_qGbSsZmv_WHaS-uIt9vvf/view?usp=sharing
 
   ## Credits
 
