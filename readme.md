@@ -40,14 +40,7 @@
 
   ## Tests
 
-  There are user tests within the application that can be utilized with the 'Jest' npm. The tests are as follows:
-  -Creation of a new 'Employee' class with user inputs
-  -Creation of a new 'Engineer' class with user inputs
-  -Creation of a new 'Engineer' html output card
-  -Creation of a new 'Manager' class with user inputs
-  -Creation of a new 'Manager' html output card
-  -Creation of a new 'Intern' class with user inputs
-  -Creation of a new 'Intern' html output card
+  There are user tests within the application that can be utilized with the 'Jest' npm.
 
 
   ## Questions
